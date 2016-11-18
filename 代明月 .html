@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset="gb2312" />
+<title>text</title>
+<style>
+#abc{outline:none;border:1px solid #ccc;}
+</style>
+<script>
+function a(){
+var x;
+ zhengzhe = /[[\u4e00-\u9fa5]/g;
+ if(document.getElementById("abc").value.match(zhengzhe)){
+x=document.getElementById("abc").value.length+document.getElementById("abc").value.match(zhengzhe).length ; }
+else
+{x=document.getElementById("abc").value.length}
+if(x==0){
+document.getElementById("abc").style.borderColor="red";
+document.getElementById("tishi").style.color="red";
+document.getElementById("tishi").innerHTML="姓名不能为空";
+
+return;
+}
+if(x>=4&&x<=16)
+{
+	document.getElementById("abc").style.borderColor="green";
+document.getElementById("tishi").style.color="green";
+document.getElementById("tishi").innerHTML="名称格式正确";
+return;
+}
+else{
+	document.getElementById("abc").style.borderColor="red";
+document.getElementById("tishi").style.color="red";
+document.getElementById("tishi").innerHTML="超出格式范围";
+
+return;
+}
+}
+</script>
+
+</head>
+<body>
+<div class="all">
+     <div class="wenben">
+      <span>名称</span>
+<input value="" type="text" id="abc" name="abc" />
+<input type="button" value="验证" onClick="a()" />
+      </div>
+<p id="tishi">必填，长度为4~16个字符</p>
+</div>
+
+
+</body>
+</html>
